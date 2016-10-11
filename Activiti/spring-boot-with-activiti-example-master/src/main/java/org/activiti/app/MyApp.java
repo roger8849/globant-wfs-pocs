@@ -1,4 +1,4 @@
-package org.activiti;
+package org.activiti.app;
 
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.identity.Group;

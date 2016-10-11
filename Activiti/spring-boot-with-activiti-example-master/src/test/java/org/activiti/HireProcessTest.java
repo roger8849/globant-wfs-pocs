@@ -1,10 +1,13 @@
 package org.activiti;
 
+import org.activiti.app.MyApp;
 import org.activiti.engine.HistoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
+import org.activiti.models.Applicant;
+import org.activiti.models.ApplicantRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

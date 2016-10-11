@@ -1,0 +1,261 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Activiti",
+		"_postman_id": "a1031899-a1dc-d784-1cd8-b57f7389f562",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Activiti",
+			"request": {
+				"url": "http://localhost:8080/activiti/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Process Definitions",
+			"request": {
+				"url": "http://localhost:8080/repository/process-definitions",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Process Definitions by ID",
+			"request": {
+				"url": "http://localhost:8080/repository/process-definitions/hireProcess:1:7",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Process Resource by ID",
+			"request": {
+				"url": "http://localhost:8080/repository/process-definitions/hireProcess:1:7/resourcedata",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Process Model",
+			"request": {
+				"url": "http://localhost:8080/repository/process-definitions/hireProcess:1:7/model",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List of Models",
+			"request": {
+				"url": "http://localhost:8080/repository/models",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Instance Process",
+			"request": {
+				"url": "http://localhost:8080/runtime/process-instances",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"processDefinitionKey\": \"hireProcess\",\r\n  \"variables\": [{\r\n    \"name\": \"applicantName\",\r\n    \"value\": \"David Cruz\"\r\n  }, {\r\n    \"name\": \"email\",\r\n    \"value\": \"john.doe@alfresco.com\"\r\n  }, {\r\n    \"name\": \"phoneNumber\",\r\n    \"value\": \"1234567\"\r\n  }]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List of Process Instances",
+			"request": {
+				"url": "http://localhost:8080/runtime/process-instances",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"processDefinitionKey\": \"hireProcess\",\r\n  \"variables\": [{\r\n    \"name\": \"applicantName\",\r\n    \"value\": \"David Cruz\"\r\n  }, {\r\n    \"name\": \"email\",\r\n    \"value\": \"john.doe@alfresco.com\"\r\n  }, {\r\n    \"name\": \"phoneNumber\",\r\n    \"value\": \"1234567\"\r\n  }]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List of Executions",
+			"request": {
+				"url": "http://localhost:8080/runtime/executions",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"processDefinitionKey\": \"hireProcess\",\r\n  \"variables\": [{\r\n    \"name\": \"applicantName\",\r\n    \"value\": \"David Cruz\"\r\n  }, {\r\n    \"name\": \"email\",\r\n    \"value\": \"john.doe@alfresco.com\"\r\n  }, {\r\n    \"name\": \"phoneNumber\",\r\n    \"value\": \"1234567\"\r\n  }]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List of Tasks",
+			"request": {
+				"url": "http://localhost:8080/runtime/tasks",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"processDefinitionKey\": \"hireProcess\",\r\n  \"variables\": [{\r\n    \"name\": \"applicantName\",\r\n    \"value\": \"David Cruz\"\r\n  }, {\r\n    \"name\": \"email\",\r\n    \"value\": \"john.doe@alfresco.com\"\r\n  }, {\r\n    \"name\": \"phoneNumber\",\r\n    \"value\": \"1234567\"\r\n  }]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Complete a Task",
+			"request": {
+				"url": "http://localhost:8080/runtime/tasks/##",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"action\": \"complete\",\r\n\t\"variables\": [{\r\n\t\t\"name\": \"telephoneInterviewOutcome\",\r\n\t\t\"value\": true\r\n\t}]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

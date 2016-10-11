@@ -1,6 +1,8 @@
-package org.activiti;
+package org.activiti.controllers;
 
 import org.activiti.engine.RuntimeService;
+import org.activiti.models.Applicant;
+import org.activiti.models.ApplicantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

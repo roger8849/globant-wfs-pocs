@@ -1,4 +1,4 @@
-package org.activiti;
+package org.activiti.models;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
