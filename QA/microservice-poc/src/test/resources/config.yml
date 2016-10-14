@@ -1,0 +1,3 @@
+isDebugMode: false
+baseUrl: "http://www.google.com.ar"
+proxy:
