@@ -1,7 +1,7 @@
-package com.globant.sample.microservice.tests.live.cucumber.definitions;
+package com.globant.sample.microservice.tests.live.cucumber.api.definitions;
 
 import com.globant.sample.microservice.Sample;
-import com.globant.testing.framework.cucumber.AbstractDefinitions;
+import com.globant.testing.framework.cucumber.AbstractApiDefinitions;
 import com.globant.testing.framework.models.HateOasResource;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 /**
  * @author Juan Krzemien
  */
-public class SamplesDefinitions extends AbstractDefinitions {
+public class SamplesApiDefinitions extends AbstractApiDefinitions {
 
     private HALSample samples;
     private Response response;

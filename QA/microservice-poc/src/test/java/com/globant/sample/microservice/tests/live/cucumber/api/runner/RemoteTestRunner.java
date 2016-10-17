@@ -1,4 +1,4 @@
-package com.globant.sample.microservice.tests.integration.cucumber.runner;
+package com.globant.sample.microservice.tests.live.cucumber.api.runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -11,15 +11,15 @@ import org.junit.runner.RunWith;
                 // Framework definitions
                 "classpath:com.globant.testing.framework.cucumber.definitions",
                 // This module definitions
-                "classpath:com.globant.sample.microservice.tests.integration.cucumber.runner",
-                "classpath:com.globant.sample.microservice.tests.integration.cucumber.definitions"
+                "classpath:com.globant.sample.microservice.tests.live.cucumber.api.runner",
+                "classpath:com.globant.sample.microservice.tests.live.cucumber.api.definitions"
         },
-        format = {"pretty", "html:target/api-cucumber", "json:target/api-cucumber.json"},
+        format = {"pretty", "html:target/live-api-cucumber", "json:target/live-api-cucumber.json"},
         //Only run scenarios with these tags (put tilde before @ to exclude tag)
         tags = {
                 "~@ignore"
         }
 )
 @RunWith(Cucumber.class)
-public class LocalTestRunner {
+public class RemoteTestRunner {
 }

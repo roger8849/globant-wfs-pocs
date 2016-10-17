@@ -1,0 +1,10 @@
+<arquillian>
+    <extension qualifier="graphene">
+        <property name="url">https://www.google.com.ar/</property>
+    </extension>
+    <extension qualifier="webdriver">
+        <property name="browser">chrome</property>
+        <property name="chromeBinary">/opt/chromedriver</property>
+        <!--<property name="chromeSwitches">&#45;&#45;user-data-dir=/tmp &#45;&#45;disable-web-security</property>-->
+    </extension>
+</arquillian>

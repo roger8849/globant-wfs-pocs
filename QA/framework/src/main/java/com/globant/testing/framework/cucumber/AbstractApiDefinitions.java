@@ -1,10 +1,8 @@
 package com.globant.testing.framework.cucumber;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.mkolisnyk.cucumber.reporting.CucumberResultsOverview;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
 
 import static com.globant.testing.framework.config.Framework.CONFIGURATION;
@@ -14,7 +12,7 @@ import static java.lang.String.format;
 /**
  * @author Juan Krzemien
  */
-public abstract class AbstractDefinitions {
+public abstract class AbstractApiDefinitions {
 
     private static final String NO_URL_ERROR = "No base URL defined in config.yml file nor as SUT_ENVIRONMENT environmental variable";
 
@@ -35,9 +33,6 @@ public abstract class AbstractDefinitions {
     @LocalServerPort
     private int port;
 
-    @Autowired
-    private ObjectMapper mapper;
-
     private ThreadLocal<RequestSpecification> spec = new ThreadLocal<RequestSpecification>() {
         @Override
         protected RequestSpecification initialValue() {
@@ -46,7 +41,8 @@ public abstract class AbstractDefinitions {
     };
 
     protected String getTargetUrl() {
-        if (port > 0) return format("http://localhost:%s/", port); // Populated only by Spring (running In-Container mode)
+        if (port > 0)
+            return format("http://localhost:%s/", port); // Populated only by Spring (running In-Container mode)
         String envVar = System.getenv("SUT_ENVIRONMENT");
         if (envVar != null && !envVar.isEmpty()) return envVar;
         return CONFIGURATION.getBaseUrl().orElseThrow(() -> new IllegalStateException(NO_URL_ERROR)).toString();
