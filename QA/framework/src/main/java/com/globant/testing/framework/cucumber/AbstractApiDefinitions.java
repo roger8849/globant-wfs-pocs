@@ -41,8 +41,7 @@ public abstract class AbstractApiDefinitions {
     };
 
     protected String getTargetUrl() {
-        if (port > 0)
-            return format("http://localhost:%s/", port); // Populated only by Spring (running In-Container mode)
+        if (port > 0) return format("http://localhost:%s/", port); // Populated only by Spring (when running In-Container mode)
         String envVar = System.getenv("SUT_ENVIRONMENT");
         if (envVar != null && !envVar.isEmpty()) return envVar;
         return CONFIGURATION.getBaseUrl().orElseThrow(() -> new IllegalStateException(NO_URL_ERROR)).toString();
