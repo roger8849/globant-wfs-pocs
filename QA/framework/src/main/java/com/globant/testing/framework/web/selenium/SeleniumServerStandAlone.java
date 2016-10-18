@@ -52,8 +52,9 @@ public enum SeleniumServerStandAlone {
     public void shutdown() {
         if (Framework.CONFIGURATION.WebDriver().isUseSeleniumGrid()) return;
         log.info("Shutting down local Selenium Stand Alone Server...");
-        server.stop();
-        log.info("Done");
+        // Selenium Server already hooks itself to JVM Runtime to be removed upon exit
+        // server.stop();
+        // log.info("Done");
     }
 }
 

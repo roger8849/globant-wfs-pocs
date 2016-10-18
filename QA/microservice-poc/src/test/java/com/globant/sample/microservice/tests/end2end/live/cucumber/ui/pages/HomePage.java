@@ -14,12 +14,12 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends PageObject{
 
     @FindBy(id = "lst-ib")
-    private WebElement searchBox;
+    private WebElement searchBoxText;
 
-    @ActionOnField("searchBox")
+    @ActionOnField("searchBoxText")
     public ResultsPage enterCriteria(String criteria) {
-        searchBox.sendKeys(criteria);
-        searchBox.sendKeys(Keys.ENTER);
+        searchBoxText.sendKeys(criteria);
+        searchBoxText.sendKeys(Keys.ENTER);
         return new ResultsPage();
     }
 

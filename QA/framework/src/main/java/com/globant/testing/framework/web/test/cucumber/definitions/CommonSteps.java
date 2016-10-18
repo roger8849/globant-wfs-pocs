@@ -2,11 +2,14 @@ package com.globant.testing.framework.web.test.cucumber.definitions;
 
 import com.comcast.zucchini.TestContext;
 import com.globant.testing.framework.web.test.pageobject.MethodDispatcher;
-import com.globant.testing.framework.web.utils.Date;
 import com.globant.testing.framework.web.utils.Generator;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 /**
  * Generic Cucumber steps for performing actions on fields/web elements of a POM
@@ -89,7 +92,7 @@ public class CommonSteps {
 
     @When("^User enters today's date in \"([^\"]*)\" field$")
     public void userEntersTodaysDateInField(String fieldName) throws Throwable {
-        String date = Date.get();
+        String date = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
         dispatcher.triggerMethodHandler(fieldName, MethodDispatcher.ElementType.TEXT, date);
         // Make available for possible later usage in other steps...
         TestContext.getCurrent().set(fieldName, date);
@@ -129,4 +132,5 @@ public class CommonSteps {
     public void browserTitleShouldBe(String title) throws Throwable {
         dispatcher.triggerMethodGetter("browserTitle", MethodDispatcher.ElementType.ANY);
     }
+
 }

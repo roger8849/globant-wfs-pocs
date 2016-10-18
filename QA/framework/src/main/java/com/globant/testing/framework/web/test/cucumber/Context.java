@@ -2,8 +2,10 @@ package com.globant.testing.framework.web.test.cucumber;
 
 import com.comcast.zucchini.TestContext;
 import com.globant.testing.framework.web.enums.Browser;
-import org.slf4j.Logger;
 import com.globant.testing.framework.web.test.pageobject.PageObject;
+import org.slf4j.Logger;
+
+import java.util.Optional;
 
 import static java.lang.String.format;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -43,14 +45,14 @@ public final class Context {
         return page;
     }
 
-    public static <T extends PageObject> T PAGE_FROM_CONTEXT() {
+    public static <T extends PageObject> Optional<T> PAGE_FROM_CONTEXT() {
         T page = TestContext.getCurrent().get(PAGE_OBJECT);
         if (page != null) {
             LOG.info(format("Retrieving Page Object [%s] from context...", page.getClass().getSimpleName()));
         } else {
             LOG.error("Attempted to retrieve a page from Context but there is none!");
         }
-        return page;
+        return Optional.ofNullable(page);
     }
 }
 

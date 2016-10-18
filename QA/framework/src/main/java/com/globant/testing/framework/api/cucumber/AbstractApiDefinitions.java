@@ -1,6 +1,5 @@
 package com.globant.testing.framework.api.cucumber;
 
-import com.github.mkolisnyk.cucumber.reporting.CucumberResultsOverview;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.springframework.boot.context.embedded.LocalServerPort;
@@ -16,19 +15,19 @@ public abstract class AbstractApiDefinitions {
 
     private static final String NO_URL_ERROR = "No base URL defined in config.yml file nor as SUT_ENVIRONMENT environmental variable";
 
-    static {
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            CucumberResultsOverview results = new CucumberResultsOverview();
-            results.setOutputDirectory("target/cucumber-results");
-            results.setOutputName("cucumber-results");
-            results.setSourceFile("target/cucumber.json");
-            try {
-                results.execute(true);
-            } catch (Exception e) {
-                System.err.println("ERROR GENERATING PRETTY REPORT: " + e.getMessage());
-            }
-        }));
-    }
+//    static {
+//        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//            CucumberResultsOverview results = new CucumberResultsOverview();
+//            results.setOutputDirectory("target/cucumber-results");
+//            results.setOutputName("cucumber-results");
+//            results.setSourceFile("target/cucumber.json");
+//            try {
+//                results.execute(true);
+//            } catch (Exception e) {
+//                System.err.println("ERROR GENERATING PRETTY REPORT: " + e.getMessage());
+//            }
+//        }));
+//    }
 
     @LocalServerPort
     private int port;

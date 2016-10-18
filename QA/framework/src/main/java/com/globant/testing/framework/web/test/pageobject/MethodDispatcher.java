@@ -62,7 +62,7 @@ public class MethodDispatcher {
             return (K) invokeAnnotatedMethodMatchingName(annotation, fieldName, type, args);
         } catch (Exception e) {
             String msg = "Could not find a method that handles a field of type [%s] named [%s] in page object [%s]!\nAre you missing an %s annotation?";
-            throw error(msg, type.name.toUpperCase(), fieldName, PAGE_FROM_CONTEXT().toString(), annotation.getSimpleName());
+            throw error(msg, type.name.toUpperCase(), fieldName, PAGE_FROM_CONTEXT(), annotation.getSimpleName());
         }
     }
 
@@ -78,11 +78,9 @@ public class MethodDispatcher {
      * @return Object returned from invoked matched method
      * @throws MethodInvocationError Throws an error if invocation fails 3 times in a row or if no matching method was found
      */
+    @SuppressWarnings("unchecked")
     private <T extends PageObject, K extends Annotation> Object invokeAnnotatedMethodMatchingName(Class<K> annotation, String fieldName, ElementType type, Object... args) throws MethodInvocationError {
-        T pageObject = PAGE_FROM_CONTEXT();
-        if (pageObject == null) {
-            throw new IllegalArgumentException("Page object is null in context! You have not initialized any Page Object!");
-        }
+        T pageObject = (T) PAGE_FROM_CONTEXT().orElseThrow(() -> new IllegalArgumentException("Page object is null in context! You have not initialized any Page Object!"));
         final String fieldToSearch = fieldName.replaceAll(" ", "") + type.name;
         final Method[] methods = pageObject.getClass().getMethods();
         Set<Method> handlers = stream(methods).filter(m -> m.isAnnotationPresent(annotation)).collect(toSet());
