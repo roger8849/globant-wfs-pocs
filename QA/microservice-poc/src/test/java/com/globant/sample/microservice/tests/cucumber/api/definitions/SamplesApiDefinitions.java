@@ -1,8 +1,8 @@
 package com.globant.sample.microservice.tests.cucumber.api.definitions;
 
 import com.globant.sample.microservice.Sample;
-import com.globant.testing.framework.cucumber.AbstractApiDefinitions;
-import com.globant.testing.framework.models.HateOasResource;
+import com.globant.testing.framework.api.cucumber.AbstractApiDefinitions;
+import com.globant.testing.framework.api.models.HateOasResource;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

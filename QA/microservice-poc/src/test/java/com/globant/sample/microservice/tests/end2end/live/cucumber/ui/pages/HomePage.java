@@ -1,25 +1,26 @@
 package com.globant.sample.microservice.tests.end2end.live.cucumber.ui.pages;
 
-import org.jboss.arquillian.graphene.page.Location;
+import com.globant.testing.framework.web.test.pageobject.PageObject;
+import com.globant.testing.framework.web.test.pageobject.annotations.ActionOnField;
+import com.globant.testing.framework.web.test.pageobject.annotations.Url;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static org.jboss.arquillian.graphene.Graphene.guardAjax;
-
 /**
  * @author Juan Krzemien
  */
-@Location("/")
-public class HomePage {
+@Url("http://www.google.com") // Can be overridden via env vars
+public class HomePage extends PageObject{
 
     @FindBy(id = "lst-ib")
     private WebElement searchBox;
 
-    public void search(String criteria) {
-        // Graphene tip: https://docs.jboss.org/author/pages/viewpage.action?pageId=66486914
+    @ActionOnField("searchBox")
+    public ResultsPage enterCriteria(String criteria) {
         searchBox.sendKeys(criteria);
-        guardAjax(searchBox).sendKeys(Keys.ENTER); // Synchronize only on last AJAX request
+        searchBox.sendKeys(Keys.ENTER);
+        return new ResultsPage();
     }
 
 }

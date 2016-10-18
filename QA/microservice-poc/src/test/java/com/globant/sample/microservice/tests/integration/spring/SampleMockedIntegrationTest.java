@@ -2,7 +2,7 @@ package com.globant.sample.microservice.tests.integration.spring;
 
 import com.globant.sample.microservice.SampleMicroService;
 import com.globant.sample.microservice.SampleRepository;
-import com.globant.testing.framework.logging.Loggable;
+import com.globant.testing.framework.api.logging.Loggable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
