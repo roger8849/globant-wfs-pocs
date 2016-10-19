@@ -7,6 +7,9 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static com.globant.testing.framework.web.test.Conditions.toBeTrue;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
+
 /**
  * @author Juan Krzemien
  */
@@ -17,6 +20,8 @@ public class ResultsPage extends PageObject {
 
     @ActionOnField("results")
     public void selectResultNumber(int index) {
+        waitFor(toBeTrue(results, webElements -> webElements.size() > 0));
+        waitFor(visibilityOfAllElements(results));
         results.get(index - 1).click();
     }
 

@@ -10,7 +10,7 @@ import static java.lang.String.format;
 
 @CucumberOptions(
         strict = true,
-        features = {"src/test/resources/features/ui"},
+        features = {"src/test/resources/features"},
         glue = {
                 // Framework definitions
                 "classpath:com.globant.testing.framework.web.test.cucumber.definitions",

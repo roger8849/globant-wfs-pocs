@@ -11,6 +11,7 @@
         <version>1.4.0.RELEASE</version>
     </parent>
 
+    <groupId>com.globant.testing.wfs</groupId>
     <artifactId>microservice-poc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -24,17 +25,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
-            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.192</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>

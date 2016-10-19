@@ -12,7 +12,11 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 /**
- * SAMPLE REGULAR UNIT TEST
+ * SAMPLE REGULAR UNIT TEST.
+ *
+ * Exclusively restricted to a single class.
+ *
+ * It is not a good idea to test models like this one...but it is the only class I have in this PoC right now :'(
  *
  * @author Juan Krzemien
  */

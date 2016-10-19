@@ -1,4 +1,4 @@
-isDebugMode: false
+isDebugMode: true
 webdriver:
   remoteURL: "http://localhost:4444/wd/hub"
   #remoteURL: "http://192.168.100.55:4444/wd/hub"

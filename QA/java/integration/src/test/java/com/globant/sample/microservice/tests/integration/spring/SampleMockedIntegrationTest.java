@@ -24,7 +24,7 @@ import static org.junit.Assert.assertNotNull;
  * Sample integration test using EXCLUSIVELY Spring Boot testing framework.
  * <p>
  * "Integration test" as in Spring documentation. Sort of a multi class level testing. It is NOT UNIT TESTING.
- * Includes the possibility of mocking out beans (not mandatory).
+ * Includes the possibility of mocking out beans (not mandatory) via @MockBean.
  * <p>
  * When no beans are mocked, results in a live integration test.
  *
