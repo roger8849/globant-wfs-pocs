@@ -1,8 +1,11 @@
 package com.globant.testing.framework.api.cucumber;
 
+import com.globant.testing.framework.api.logging.Loggable;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.springframework.boot.context.embedded.LocalServerPort;
+
+import java.net.MalformedURLException;
 
 import static com.globant.testing.framework.api.config.Framework.CONFIGURATION;
 import static io.restassured.http.ContentType.JSON;
@@ -11,7 +14,7 @@ import static java.lang.String.format;
 /**
  * @author Juan Krzemien
  */
-public abstract class AbstractApiDefinitions {
+public abstract class AbstractApiDefinitions implements Loggable {
 
     private static final String NO_URL_ERROR = "No base URL defined in config.yml file nor as SUT_ENVIRONMENT environmental variable";
 
@@ -40,10 +43,16 @@ public abstract class AbstractApiDefinitions {
     };
 
     protected String getTargetUrl() {
-        if (port > 0) return format("http://localhost:%s/", port); // Populated only by Spring (when running In-Container mode)
+        if (port > 0)
+            return format("http://localhost:%s/", port); // Populated only by Spring (when running In-Container mode)
         String envVar = System.getenv("SUT_ENVIRONMENT");
         if (envVar != null && !envVar.isEmpty()) return envVar;
-        return CONFIGURATION.getBaseUrl().orElseThrow(() -> new IllegalStateException(NO_URL_ERROR)).toString();
+        try {
+            return CONFIGURATION.getActiveEnvironment().getUrl().toString();
+        } catch (MalformedURLException e) {
+            getLogger().error(e.getLocalizedMessage(), e);
+            throw new RuntimeException(e);
+        }
     }
 
     protected RequestSpecification spec() {

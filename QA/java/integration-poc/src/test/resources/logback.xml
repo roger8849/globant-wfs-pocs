@@ -9,6 +9,7 @@
     </appender>
 
     <logger name="com.globant" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
     <logger name="org.springframework" level="INFO"/>
 
     <root level="debug">

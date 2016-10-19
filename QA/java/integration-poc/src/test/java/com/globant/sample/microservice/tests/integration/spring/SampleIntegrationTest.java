@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
+import java.util.Collection;
 
 import static org.junit.Assert.*;
 
@@ -34,7 +34,7 @@ public class SampleIntegrationTest extends AbstractTransactionalJUnit4SpringCont
 
     @Test
     public void testRetrieveSample() {
-        List<Sample> samples = (List<Sample>) repository.findAll();
+        Collection<Sample> samples = (Collection<Sample>) repository.findAll();
         assertNotNull("Samples should not be null", samples);
         assertEquals("There should be 5 samples in repository", 5, samples.size());
         samples.forEach(sample -> {

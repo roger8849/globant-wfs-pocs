@@ -7,7 +7,8 @@ import com.globant.testing.framework.api.config.interfaces.IProxy;
 import com.globant.testing.framework.api.logging.Loggable;
 
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import static java.lang.Boolean.parseBoolean;
@@ -20,14 +21,19 @@ import static java.lang.System.getProperty;
 @JsonSerialize
 class Config implements IConfig, Loggable {
 
-    @JsonProperty
-    private boolean isDebugMode = false;
+    private static final String ACTIVE_ENVIRONMENT_ERROR = "Active environment and environments key names do not match";
 
     @JsonProperty
-    private Proxy proxy = new Proxy();
+    private Boolean isDebugMode;
 
     @JsonProperty
-    private String baseUrl = "";
+    private String activeEnvironment;
+
+    @JsonProperty
+    private Map<String, Environment> environments = new HashMap<>();
+
+    @JsonProperty
+    private IProxy proxy;
 
     Config() throws MalformedURLException {
     }
@@ -43,13 +49,8 @@ class Config implements IConfig, Loggable {
     }
 
     @Override
-    public Optional<URL> getBaseUrl() {
-        try {
-            return Optional.of(new URL(baseUrl));
-        } catch (MalformedURLException e) {
-            getLogger().error(e.getMessage(), e);
-        }
-        return Optional.empty();
+    public Environment getActiveEnvironment() {
+        return Optional.ofNullable(environments.get(activeEnvironment)).orElseThrow(() -> new RuntimeException(ACTIVE_ENVIRONMENT_ERROR));
     }
 
 }

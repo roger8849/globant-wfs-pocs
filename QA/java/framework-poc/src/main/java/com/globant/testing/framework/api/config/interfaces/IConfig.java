@@ -1,8 +1,7 @@
 package com.globant.testing.framework.api.config.interfaces;
 
 
-import java.net.URL;
-import java.util.Optional;
+import com.globant.testing.framework.api.config.Environment;
 
 /**
  * @author Juan Krzemien
@@ -24,9 +23,9 @@ public interface IConfig {
     IProxy Proxy();
 
     /**
-     * Holds the definition of the base URL to test against
+     * Retrieves environment data from the one marked as active in config file
      *
-     * @return URL instance
+     * @return Environment instance
      */
-    Optional<URL> getBaseUrl();
+    Environment getActiveEnvironment();
 }

@@ -29,13 +29,13 @@
     <dependencies>
         <dependency>
             <groupId>com.globant.testing.wfs</groupId>
-            <artifactId>microservice-poc</artifactId>
+            <artifactId>framework-poc</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.globant.testing.wfs</groupId>
-            <artifactId>framework-poc</artifactId>
+            <artifactId>microservice-poc</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>

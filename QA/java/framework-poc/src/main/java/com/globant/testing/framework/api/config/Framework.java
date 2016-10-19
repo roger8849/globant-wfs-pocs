@@ -8,8 +8,7 @@ import com.globant.testing.framework.api.logging.Loggable;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.Optional;
+import java.io.PrintWriter;
 
 import static java.lang.String.format;
 import static java.lang.Thread.currentThread;
@@ -37,6 +36,15 @@ public enum Framework implements IConfig, Loggable {
 
     private IConfig readConfig() {
         ObjectMapper om = new ObjectMapper(new YAMLFactory());
+
+        try {
+            IConfig config = new Config();
+            PrintWriter out = new PrintWriter(System.out);
+            om.writeValue(out, config);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         IConfig configuration = null;
         InputStream configFile = currentThread().getContextClassLoader().getResourceAsStream(CONFIG_FILE);
         try {
@@ -63,8 +71,7 @@ public enum Framework implements IConfig, Loggable {
     }
 
     @Override
-    public Optional<URL> getBaseUrl() {
-        return config.getBaseUrl();
+    public Environment getActiveEnvironment() {
+        return config.getActiveEnvironment();
     }
-
 }

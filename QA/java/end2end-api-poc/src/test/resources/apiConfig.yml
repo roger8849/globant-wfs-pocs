@@ -1,0 +1,75 @@
+isDebugMode: false
+
+environments:
+  # Overridable via env var SUT_ENVIRONMENT
+  active: "dev"
+  dev:
+    baseUrl: "http://www.google.com.ar"
+    # or token?
+    credentials:
+      username: ""
+      password: ""
+    dbs:
+      db1:
+        url: ""
+        credentials:
+          username: ""
+          password: ""
+      db2:
+        url: ""
+        credentials:
+          username: ""
+          password: ""
+
+  test:
+    baseUrl: "http://www.google.com.ar"
+    # or token?
+    credentials:
+      username: ""
+      password: ""
+    dbs:
+      db1:
+        url: ""
+        credentials:
+          username: ""
+          password: ""
+      db2:
+        url: ""
+        credentials:
+          username: ""
+          password: ""
+
+  qa:
+    baseUrl: "http://www.google.com.ar"
+    credentials:
+      username: ""
+      password: ""
+    dbs:
+      db1:
+        url: ""
+        credentials:
+          username: ""
+          password: ""
+      db2:
+        url: ""
+        credentials:
+          username: ""
+          password: ""
+
+  production:
+    baseUrl: "http://www.google.com.ar"
+    credentials:
+      username: ""
+      password: ""
+    dbs:
+      db1:
+        url: ""
+        credentials:
+          username: ""
+          password: ""
+      db2:
+        url: ""
+        credentials:
+          username: ""
+          password: ""
+proxy:

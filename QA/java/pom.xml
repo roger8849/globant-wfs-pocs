@@ -22,9 +22,9 @@
     <modules>
         <module>microservice-poc</module>
         <module>framework-poc</module>
-        <module>integration</module>
-        <module>end2end</module>
-        <module>end2end-api</module>
+        <module>integration-poc</module>
+        <module>end2end-poc</module>
+        <module>end2end-api-poc</module>
     </modules>
 
     <build>
