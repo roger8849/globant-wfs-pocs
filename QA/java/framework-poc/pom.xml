@@ -19,6 +19,18 @@
         <selenium.version>3.0.0-beta3</selenium.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>es.cuatrogatos.jira.plugins</groupId>
+                <artifactId>XrayRestClient</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -140,6 +152,11 @@
             <artifactId>webdrivermanager</artifactId>
             <version>1.4.9</version>
         </dependency>
+        <!--JIRA REST Client-->
+        <dependency>
+            <groupId>es.cuatrogatos.jira.plugins</groupId>
+            <artifactId>XrayRestClient</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
-
 </project>
