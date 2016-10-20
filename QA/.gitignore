@@ -22,3 +22,7 @@ obj/
 .project
 .settings/
 
+node_modules/
+*driver
+
+*.log

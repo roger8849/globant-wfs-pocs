@@ -1,0 +1,27 @@
+{
+  "name": "protractor-cucumber",
+  "version": "1.0.0",
+  "description": "Sample project using protractor with Cucumber on top",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor config/conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roger8849/globant-wfs-pocs.git"
+  },
+  "author": "Juan Krzemien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roger8849/globant-wfs-pocs/issues"
+  },
+  "homepage": "https://github.com/roger8849/globant-wfs-pocs#readme",
+  "devDependencies": {
+    "protractor": "^4.0.9",
+    "cucumber": "^1.3.1",    
+    "protractor-cucumber-framework": "^0.6.0",
+    "webdriver-manager": "^10.2.4",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0"
+  }
+}
