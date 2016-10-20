@@ -22,7 +22,6 @@
     <modules>
         <module>microservice-poc</module>
         <module>framework-poc</module>
-        <module>integration-poc</module>
         <module>end2end-poc</module>
         <module>end2end-api-poc</module>
     </modules>

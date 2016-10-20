@@ -31,8 +31,8 @@ import static org.junit.Assert.assertNotNull;
  * @author Juan Krzemien
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SampleMockedIntegrationTest.Overrides.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class SampleMockedIntegrationTest extends AbstractTransactionalJUnit4SpringContextTests implements Loggable {
+@SpringBootTest(classes = SampleMockedIT.Overrides.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class SampleMockedIT extends AbstractTransactionalJUnit4SpringContextTests implements Loggable {
 
     @Autowired
     private Map<Currency, Currency> aPotentiallyOverriddenObject;

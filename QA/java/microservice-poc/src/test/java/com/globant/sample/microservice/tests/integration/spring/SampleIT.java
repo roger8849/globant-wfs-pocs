@@ -26,8 +26,8 @@ import static org.junit.Assert.*;
  * @author Juan Krzemien
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SampleMicroService.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class SampleIntegrationTest extends AbstractTransactionalJUnit4SpringContextTests implements Loggable {
+@SpringBootTest(classes = SampleMicroService.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class SampleIT extends AbstractTransactionalJUnit4SpringContextTests implements Loggable {
 
     @Autowired
     private SampleRepository repository;
