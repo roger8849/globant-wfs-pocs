@@ -13,9 +13,9 @@ import static org.mockito.Mockito.*;
 
 /**
  * SAMPLE REGULAR UNIT TEST.
- *
+ * <p>
  * Exclusively restricted to a single class.
- *
+ * <p>
  * It is not a good idea to test models like this one...but it is the only class I have in this PoC right now :'(
  *
  * @author Juan Krzemien

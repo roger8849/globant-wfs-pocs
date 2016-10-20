@@ -3,12 +3,12 @@ package com.globant.testing.framework.web.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.globant.testing.framework.web.config.interfaces.IConfig;
-import com.globant.testing.framework.web.config.interfaces.IProxy;
-import com.globant.testing.framework.web.enums.Browser;
-import org.slf4j.Logger;
 import com.globant.testing.framework.web.config.interfaces.IDriver;
+import com.globant.testing.framework.web.config.interfaces.IProxy;
 import com.globant.testing.framework.web.config.interfaces.IWebDriverConfig;
+import com.globant.testing.framework.web.enums.Browser;
 import com.globant.testing.framework.web.utils.Environment;
+import org.slf4j.Logger;
 
 import java.io.File;
 import java.io.IOException;

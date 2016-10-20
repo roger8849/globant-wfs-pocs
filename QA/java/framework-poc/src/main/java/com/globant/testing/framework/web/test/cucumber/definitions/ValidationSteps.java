@@ -1,14 +1,14 @@
 package com.globant.testing.framework.web.test.cucumber.definitions;
 
 import com.comcast.zucchini.TestContext;
+import com.globant.testing.framework.web.test.pageobject.MethodDispatcher;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import com.globant.testing.framework.web.test.pageobject.MethodDispatcher;
 
+import static com.globant.testing.framework.web.test.pageobject.MethodDispatcher.ElementType.ANY;
 import static java.lang.String.format;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import static com.globant.testing.framework.web.test.pageobject.MethodDispatcher.ElementType.ANY;
 
 /**
  * Generic Cucumber steps for performing validations on fields/web elements of a POM
@@ -72,4 +72,9 @@ public class ValidationSteps {
         assertTrue(result.contains(previousFieldValue), format("Field [%s] has a value [%s] which does not contain previously entered one [%s] in [%s]", fieldName, result, previousFieldValue, previousFieldName));
     }
 
+    @Then("^Browser title should be \"([^\"]*)\"$")
+    public void browserTitleShouldBe(String title) throws Throwable {
+        String actualTitle = dispatcher.triggerMethodGetter("browserTitle", MethodDispatcher.ElementType.ANY);
+        assertEquals(actualTitle, title, "Browser title does not match,");
+    }
 }

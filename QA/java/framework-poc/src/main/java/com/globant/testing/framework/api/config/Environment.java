@@ -2,8 +2,8 @@ package com.globant.testing.framework.api.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.globant.testing.framework.api.config.interfaces.HasDataSources;
 import com.globant.testing.framework.api.config.interfaces.Authenticable;
+import com.globant.testing.framework.api.config.interfaces.HasDataSources;
 import com.globant.testing.framework.api.config.interfaces.Locatable;
 
 import java.net.MalformedURLException;
@@ -18,10 +18,10 @@ import java.util.List;
 public class Environment implements Locatable, Authenticable, HasDataSources {
 
     @JsonProperty
-    private String url;
+    private String url = "http://www.invalid.com/";
 
     @JsonProperty
-    private Credentials credentials;
+    private Credentials credentials = new Credentials();
 
     @JsonProperty
     private List<DataSource> dataSources = new ArrayList<>();

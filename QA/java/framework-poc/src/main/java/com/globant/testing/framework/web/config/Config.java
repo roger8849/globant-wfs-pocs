@@ -4,9 +4,9 @@ package com.globant.testing.framework.web.config;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.globant.testing.framework.web.config.interfaces.IConfig;
+import com.globant.testing.framework.web.config.interfaces.IDriver;
 import com.globant.testing.framework.web.config.interfaces.IProxy;
 import com.globant.testing.framework.web.enums.Browser;
-import com.globant.testing.framework.web.config.interfaces.IDriver;
 
 import java.net.MalformedURLException;
 import java.util.HashMap;

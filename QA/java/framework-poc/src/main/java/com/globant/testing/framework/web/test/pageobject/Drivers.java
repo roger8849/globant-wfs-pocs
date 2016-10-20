@@ -10,9 +10,9 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.util.Map;
 
+import static com.globant.testing.framework.web.config.Framework.CONFIGURATION;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.openqa.selenium.remote.CapabilityType.PROXY;
-import static com.globant.testing.framework.web.config.Framework.CONFIGURATION;
 
 /**
  * Package local (per thread) web driver instance initializer and container

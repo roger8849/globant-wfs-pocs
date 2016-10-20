@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
  * @author Juan Krzemien
  */
 @Url("http://www.google.com") // Can be overridden via env vars
-public class HomePage extends PageObject{
+public class HomePage extends PageObject {
 
     @FindBy(id = "lst-ib")
     private WebElement searchBoxText;

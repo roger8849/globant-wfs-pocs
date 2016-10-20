@@ -2,8 +2,6 @@ package com.globant.sample.microservice.tests.end2end.live.cucumber.ui.definitio
 
 import com.globant.sample.microservice.tests.end2end.live.cucumber.ui.pages.HomePage;
 import com.globant.testing.framework.web.test.cucumber.StepsFor;
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 
 import static org.testng.Assert.assertTrue;

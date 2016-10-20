@@ -28,4 +28,5 @@ public interface IConfig {
      * @return Environment instance
      */
     Environment getActiveEnvironment();
+
 }

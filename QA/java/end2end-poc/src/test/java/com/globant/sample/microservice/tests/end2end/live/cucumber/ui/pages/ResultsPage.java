@@ -22,7 +22,7 @@ public class ResultsPage extends PageObject {
     public void selectResultNumber(int index) {
         waitFor(toBeTrue(results, webElements -> webElements.size() > 0));
         waitFor(visibilityOfAllElements(results));
-        results.get(index - 1).click();
+        results.get(index).click();
     }
 
 }

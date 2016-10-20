@@ -4,7 +4,6 @@ import com.comcast.zucchini.TestContext;
 import com.globant.testing.framework.web.test.pageobject.MethodDispatcher;
 import com.globant.testing.framework.web.utils.Generator;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 import java.time.LocalDateTime;
@@ -126,11 +125,6 @@ public class CommonSteps {
     @And("^User clicks the \"([^\"]*)\" field")
     public void userClicksTheField(String fieldName) throws Throwable {
         dispatcher.triggerMethodHandler(fieldName, MethodDispatcher.ElementType.ANY);
-    }
-
-    @Then("^Browser title should be \"([^\"]*)\"$")
-    public void browserTitleShouldBe(String title) throws Throwable {
-        dispatcher.triggerMethodGetter("browserTitle", MethodDispatcher.ElementType.ANY);
     }
 
 }

@@ -18,3 +18,7 @@ bin/
 obj/
 *.iml
 .idea/
+.classpath
+.project
+.settings/
+

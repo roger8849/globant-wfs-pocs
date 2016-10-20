@@ -11,6 +11,6 @@ public class ResultsPageSteps extends StepsFor<ResultsPage> {
 
     @When("^User clicks the (\\d+) link result$")
     public void userClicksTheLinkResult(int linkNumber) throws Throwable {
-        getCurrentPageForStep().selectResultNumber(linkNumber);
+        getCurrentPageForStep().selectResultNumber(linkNumber - 1);
     }
 }

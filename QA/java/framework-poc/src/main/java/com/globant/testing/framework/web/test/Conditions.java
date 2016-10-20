@@ -9,7 +9,7 @@ public final class Conditions {
     private Conditions() {
     }
 
-    public static <T> ExpectedCondition toBeTrue(T subject, Function<T, Boolean> condition) {
+    public static <T> ExpectedCondition<?> toBeTrue(T subject, Function<T, Boolean> condition) {
         return c -> condition.apply(subject);
     }
 }

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.globant.testing.framework.api.config.interfaces.IConfig;
 import com.globant.testing.framework.api.config.interfaces.IProxy;
-import com.globant.testing.framework.api.logging.Loggable;
 
 import java.net.MalformedURLException;
 import java.util.HashMap;
@@ -19,12 +18,12 @@ import static java.lang.System.getProperty;
  * @author Juan Krzemien
  */
 @JsonSerialize
-class Config implements IConfig, Loggable {
+class Config implements IConfig {
 
     private static final String ACTIVE_ENVIRONMENT_ERROR = "Active environment and environments key names do not match";
 
     @JsonProperty
-    private Boolean isDebugMode;
+    private boolean isDebugMode;
 
     @JsonProperty
     private String activeEnvironment;
@@ -51,6 +50,11 @@ class Config implements IConfig, Loggable {
     @Override
     public Environment getActiveEnvironment() {
         return Optional.ofNullable(environments.get(activeEnvironment)).orElseThrow(() -> new RuntimeException(ACTIVE_ENVIRONMENT_ERROR));
+    }
+
+    public void setActiveEnvironment(String name, Environment environment) {
+        this.activeEnvironment = name;
+        environments.put(activeEnvironment, environment);
     }
 
 }

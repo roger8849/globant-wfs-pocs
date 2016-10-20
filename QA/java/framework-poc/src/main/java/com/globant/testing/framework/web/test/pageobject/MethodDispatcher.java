@@ -1,21 +1,21 @@
 package com.globant.testing.framework.web.test.pageobject;
 
 import com.globant.testing.framework.web.exceptions.MethodInvocationError;
-import com.globant.testing.framework.web.test.pageobject.annotations.FocusFrames;
-import org.slf4j.Logger;
 import com.globant.testing.framework.web.test.pageobject.annotations.ActionOnField;
+import com.globant.testing.framework.web.test.pageobject.annotations.FocusFrames;
 import com.globant.testing.framework.web.test.pageobject.annotations.GetterForField;
+import org.slf4j.Logger;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Set;
 
+import static com.globant.testing.framework.web.test.cucumber.Context.PAGE_FROM_CONTEXT;
 import static java.lang.String.format;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
 import static org.slf4j.LoggerFactory.getLogger;
-import static com.globant.testing.framework.web.test.cucumber.Context.PAGE_FROM_CONTEXT;
 
 /**
  * Public class in charge of triggering POM methods from Cucumber's Step Definition classes.
@@ -35,6 +35,7 @@ public class MethodDispatcher {
      * @param <K>       A generic return type
      * @return Whatever the invoked method returns (Object)
      */
+    @SuppressWarnings("unchecked")
     public <K> K triggerMethodGetter(String fieldName, ElementType type) {
         Class<GetterForField> annotation = GetterForField.class;
         try {
@@ -56,6 +57,7 @@ public class MethodDispatcher {
      * @return A POM instance returned from the invoked method
      * @throws MethodInvocationError Throws an error if invocation fails 3 times in a row or if no matching method was found
      */
+    @SuppressWarnings("unchecked")
     public <K extends PageObject> K triggerMethodHandler(String fieldName, ElementType type, Object... args) throws MethodInvocationError {
         Class<ActionOnField> annotation = ActionOnField.class;
         try {

@@ -1,7 +1,7 @@
 package com.globant.testing.framework.web.test.cucumber;
 
-import org.slf4j.Logger;
 import com.globant.testing.framework.web.test.pageobject.PageObject;
+import org.slf4j.Logger;
 
 import java.lang.reflect.ParameterizedType;
 
@@ -25,6 +25,7 @@ public abstract class StepsFor<T extends PageObject> {
         }*/
     }
 
+    @SuppressWarnings("unchecked")
     private Class<T> getPageObjectType() {
         ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
         return (Class<T>) parameterizedType.getActualTypeArguments()[0];

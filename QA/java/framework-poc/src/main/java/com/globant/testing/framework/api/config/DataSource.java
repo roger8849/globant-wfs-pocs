@@ -15,10 +15,10 @@ import java.net.URL;
 public class DataSource implements Locatable, Authenticable {
 
     @JsonProperty
-    private String url;
+    private String url = "http://invalid/";
 
     @JsonProperty
-    private Credentials credentials;
+    private Credentials credentials = new Credentials();
 
     @Override
     public URL getUrl() throws MalformedURLException {

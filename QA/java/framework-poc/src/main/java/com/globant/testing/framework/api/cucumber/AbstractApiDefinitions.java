@@ -16,8 +16,6 @@ import static java.lang.String.format;
  */
 public abstract class AbstractApiDefinitions implements Loggable {
 
-    private static final String NO_URL_ERROR = "No base URL defined in config.yml file nor as SUT_ENVIRONMENT environmental variable";
-
 //    static {
 //        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 //            CucumberResultsOverview results = new CucumberResultsOverview();
