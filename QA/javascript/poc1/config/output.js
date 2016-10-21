@@ -1,11 +1,11 @@
 var Cucumber = require('cucumber'),
-    fs = require('fs');
+    fs = require('fs'),
     path = require('path');
 
 var JsonFormatter = Cucumber.Listener.JsonFormatter();
 
 var reportDirectory = 'reports/';
-var reportFileName = 'cucumber-test-results.json';
+var reportFileName = 'cucumber-test-results-' + new Date().getTime() + '.json';
 
 var reportDirectoryPath = path.join(__dirname, '../' + reportDirectory);
 var reportFilePath = path.join(reportDirectoryPath + reportFileName);
