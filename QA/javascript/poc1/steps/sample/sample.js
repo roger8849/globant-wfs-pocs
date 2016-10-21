@@ -1,9 +1,3 @@
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);
-
-var expect = chai.expect;
-
 // set this.World to your custom world (optional)
 
 var CustomWorld = function() {};

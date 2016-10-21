@@ -1,41 +1,63 @@
+'use strict';
+
 exports.config = {
+  allScriptsTimeout: 50000,
+  getPageTimeout: 20000,
+
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
+
   specs: [
-        '../features/**/*.feature'
+    '../features/**/*.feature'
   ],
+
   cucumberOpts: {
-    format  : ['pretty', 'progress'],
+    tags: '~@ignore',
+    format  : ['json', 'pretty', 'progress'],
     require: [
-        '../steps/**/*.js'
+        './output.js', '../steps/**/*.js'
     ]
   },
+
+  onPrepare: function() {
+      // Set any desired window size...
+      //browser.manage().window().setSize(1600, 1000);
+      browser.manage().window().maximize();
+
+      //http://chaijs.com/
+      global.chai = require('chai');
+
+      //https://github.com/domenic/chai-as-promised/
+      global.chaiAsPromised = require('chai-as-promised');
+      global.chai.use(global.chaiAsPromised);
+
+      global.expect = global.chai.expect;
+      global.assert = global.chai.assert;
+      global.should = global.chai.should();
+
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+  },
+
+  afterLaunch: function() {
+      var reporter = require('protractor-multicapabilities-htmlreporter');
+      //reporter.generateHtmlReport('reports/cucumber-test-results.json', 'Automation Results', 'reports/report.html');
+  },
+
   seleniumAddress: 'http://localhost:4444/wd/hub',
   baseUrl: 'http://' + (process.env.SUT_HTTP_HOST || 'localhost') + ':' + (process.env.SUT_HTTP_PORT || 8080),
+
   multiCapabilities: [
     {
-      browserName: (process.env.BROWSER1_NAME || 'chrome'),
-      version: (process.env.BROWSER1_VERSION || 'ANY'),
-      cucumberOpts: {
-        tags: '~@ignore',
-        format: 'pretty'
-      }
+      browserName: 'chrome',
+      version: 'ANY'
     },
     {
-      browserName: (process.env.BROWSER2_NAME || 'firefox'),
-      version: (process.env.BROWSER2_VERSION || 'ANY'),
-      cucumberOpts: {
-        tags: '~@ignore',
-        format: 'pretty'
-      }
+      browserName: 'firefox',
+      version: 'ANY'
     },
     {
-      browserName: (process.env.BROWSER3_NAME || 'internetExplorer'),
-      version: (process.env.BROWSER3_VERSION || 'ANY'),
-      cucumberOpts: {
-        tags: '~@ignore',
-        format: 'pretty'
-      }
+      browserName: 'internet explorer',
+      version: 'ANY'
     }
   ]
 };
