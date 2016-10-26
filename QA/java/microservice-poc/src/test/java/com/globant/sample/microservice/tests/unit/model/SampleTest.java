@@ -26,7 +26,7 @@ public class SampleTest {
     private static final String SOME_STRING = "Hi there!";
 
     @Mock
-    Sample classUnderTest;
+    private Sample classUnderTest;
 
     @Before
     public void setUp() {
@@ -37,7 +37,7 @@ public class SampleTest {
     @Test
     public void reallyStupidTest() {
         when(classUnderTest.getContent()).thenReturn(SOME_STRING);
-        assertEquals("Mockito does not work", classUnderTest.getContent(), SOME_STRING);
+        assertEquals("Mockito is not working?", classUnderTest.getContent(), SOME_STRING);
         verify(classUnderTest, times(1)).getContent();
         verifyNoMoreInteractions(classUnderTest);
     }

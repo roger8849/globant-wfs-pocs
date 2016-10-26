@@ -33,7 +33,7 @@ public class SampleIT extends AbstractTransactionalJUnit4SpringContextTests impl
     private SampleRepository repository;
 
     @Test
-    public void testRetrieveSample() {
+    public void testRetrieveSamples() {
         Collection<Sample> samples = (Collection<Sample>) repository.findAll();
         assertNotNull("Samples should not be null", samples);
         assertEquals("There should be 5 samples in repository", 5, samples.size());
