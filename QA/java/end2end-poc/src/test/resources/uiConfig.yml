@@ -11,9 +11,9 @@ webdriver:
   useListener: true
 
 drivers:
-  CHROME:
-    arguments:
-      - no-sandbox
+#  CHROME:
+#    arguments:
+#      - no-sandbox
 
 #  IE:
 #    capabilities:
@@ -32,7 +32,7 @@ drivers:
 #    capabilities:
 #      initialBrowserUrl: "about:blank"
 
-#  MARIONETTE:
+  MARIONETTE:
 #    capabilities:
 #      binary: "D:/Programas/Firefox/firefox.exe"
 #      firefox_binary: "D:/Programas/Firefox/firefox.exe"

@@ -38,7 +38,9 @@ public class Hooks implements Loggable {
         String user = "";
         String pass = "";
         try (AsyncXrayJiraRestClient client = (AsyncXrayJiraRestClient) new XrayRestAsyncRestClientFactory().createWithBasicHttpAuthentication(jiraUrl, user, pass)) {
-            Long testId = Long.valueOf(scenario.getId());
+            // Need access to real XRay sample here...
+            String id = scenario.getId().split(";")[1];
+            Long testId = Long.valueOf(id.substring(0, id.indexOf(":")));
             TestRun.Status status;
             switch (scenario.getStatus()) {
                 case "failed":

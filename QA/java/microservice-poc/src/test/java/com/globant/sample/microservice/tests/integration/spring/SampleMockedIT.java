@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Sample compoenent test using EXCLUSIVELY Spring Boot testing framework.
+ * Sample component test using EXCLUSIVELY Spring Boot testing framework.
  *
  * Sort of a multi class level testing. It is NOT UNIT TESTING.
  * Includes the possibility of mocking out beans via Spring's @MockBean.

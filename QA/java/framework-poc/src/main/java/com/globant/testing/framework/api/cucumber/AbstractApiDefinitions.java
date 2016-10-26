@@ -12,6 +12,8 @@ import static io.restassured.http.ContentType.JSON;
 import static java.lang.String.format;
 
 /**
+ *
+ *
  * @author Juan Krzemien
  */
 public abstract class AbstractApiDefinitions implements Loggable {
@@ -41,8 +43,7 @@ public abstract class AbstractApiDefinitions implements Loggable {
     };
 
     protected String getTargetUrl() {
-        if (port > 0)
-            return format("http://localhost:%s/", port); // Populated only by Spring (when running In-Container mode)
+        if (port > 0) return format("http://localhost:%s/", port); // Populated only by Spring (when running In-Container mode)
         String envVar = System.getenv("SUT_ENVIRONMENT");
         if (envVar != null && !envVar.isEmpty()) return envVar;
         try {

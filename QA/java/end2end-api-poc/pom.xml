@@ -13,25 +13,7 @@
 
     <artifactId>end2end-api-poc</artifactId>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>1.4.0.RELEASE</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-        <dependency>
-            <groupId>com.globant.testing.wfs</groupId>
-            <artifactId>microservice-poc</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>com.globant.testing.wfs</groupId>
             <artifactId>framework-poc</artifactId>
@@ -39,5 +21,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>
