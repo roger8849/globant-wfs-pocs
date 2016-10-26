@@ -36,7 +36,6 @@ public class DockerizedSampleIT extends AbstractTransactionalJUnit4SpringContext
             .file("src/test/resources/docker-compose.yml")
             .build();
 
-
     @Autowired
     private SampleRepository repository;
 

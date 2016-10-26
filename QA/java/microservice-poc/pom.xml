@@ -15,6 +15,8 @@
     <artifactId>microservice-poc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>jar</packaging>
+
     <properties>
         <java.version>1.8</java.version>
         <spring.boot.version>1.4.0.RELEASE</spring.boot.version>
@@ -46,20 +48,7 @@
             <version>1.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
-        <!--DOCKER DEPENDENCIES-->
-        <dependency>
-            <groupId>com.palantir.docker.compose</groupId>
-            <artifactId>docker-compose-rule</artifactId>
-            <version>0.26.0</version>
-        </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>docker-compose-rules</id>
-            <url>https://dl.bintray.com/palantir/releases</url>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>

@@ -1,4 +1,4 @@
-Feature: Retrieve sample contents from /samples endpoint of RESTful API
+Feature: Retrieve Sample contents from RESTful API
 
   Scenario: Retrieve all samples available
     Given I query the GET endpoint "/samples"

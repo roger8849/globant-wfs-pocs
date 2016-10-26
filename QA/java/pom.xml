@@ -25,6 +25,7 @@
         <module>framework-poc</module>
         <module>end2end-poc</module>
         <module>end2end-api-poc</module>
+        <module>microservice-cassandra</module>
     </modules>
 
     <build>
