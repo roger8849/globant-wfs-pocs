@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * @author Juan Krzemien
  */
-public interface LogTextRepository extends CassandraRepository<LogReg> {
+public interface LogTextRepository extends CrudRepository<LogReg, Integer> {
 
 }

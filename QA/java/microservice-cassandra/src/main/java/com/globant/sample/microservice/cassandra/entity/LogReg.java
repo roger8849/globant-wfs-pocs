@@ -9,10 +9,10 @@ package com.globant.sample.microservice.cassandra.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.mapping.Column;
-import org.springframework.data.cassandra.mapping.PrimaryKey; 
+import org.springframework.data.cassandra.mapping.PrimaryKey;
 import org.springframework.data.cassandra.mapping.Table;
+
 /**
- *
  * @author sebastian.pacheco
  */
 @Data
@@ -51,7 +51,6 @@ public class LogReg {
     public void setLogText(String LogText) {
         this.LogText = LogText;
     }
-    
-    
-    
+
+
 }

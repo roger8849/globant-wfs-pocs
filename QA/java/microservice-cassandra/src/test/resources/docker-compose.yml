@@ -1,5 +1,4 @@
 cassandra:
-  image: cassandra:latest
+  image: cassandra:2.2.8
   ports:
-    - 9042:9042
-    - 7000:7000
+    - 9042
