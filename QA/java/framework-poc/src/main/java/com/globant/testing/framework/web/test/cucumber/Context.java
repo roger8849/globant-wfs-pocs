@@ -1,6 +1,5 @@
 package com.globant.testing.framework.web.test.cucumber;
 
-import com.comcast.zucchini.TestContext;
 import com.globant.testing.framework.web.enums.Browser;
 import com.globant.testing.framework.web.test.pageobject.PageObject;
 import org.slf4j.Logger;
@@ -17,7 +16,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public final class Context {
 
-    public final static String BROWSER = "Browser";
+    private final static String BROWSER = "Browser";
     private final static String PAGE_OBJECT = "PageObject";
 
     private static final Logger LOG = getLogger(Context.class);
@@ -27,7 +26,12 @@ public final class Context {
 
     public static void BROWSER_TO_CONTEXT(Browser browser) {
         LOG.debug(format("Promoting Browser [%s] to context...", browser.name()));
-        TestContext.getCurrent().set(BROWSER, browser);
+        TestContext tc = TestContext.getCurrent();
+        if (tc == null) {
+            tc = new TestContext(browser.name());
+            TestContext.setCurrent(tc);
+        }
+        tc.set(BROWSER, browser);
     }
 
     public static Browser BROWSER_FROM_CONTEXT() {

@@ -1,31 +1,31 @@
 package com.globant.sample.microservice.tests.end2end.live.cucumber.ui.runner;
 
-import com.globant.testing.framework.api.logging.Loggable;
+import com.globant.testing.framework.web.test.pageobject.AbstractCucumberHook;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import es.cuatrogatos.jira.xray.rest.client.api.domain.TestRun;
-import es.cuatrogatos.jira.xray.rest.client.core.internal.async.AsyncXrayJiraRestClient;
-import es.cuatrogatos.jira.xray.rest.client.core.internal.async.XrayRestAsyncRestClientFactory;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import static es.cuatrogatos.jira.xray.rest.client.api.domain.TestRun.Status.*;
+import static java.lang.String.format;
 
 /**
  * @author Juan Krzemien
  */
-public class Hooks implements Loggable {
+public class Hooks extends AbstractCucumberHook {
 
     @Before
-    public void setUp(Scenario scenario) {
-
+    public void cucumberSetUp(Scenario scenario) {
+        getLogger().info(format("Starting scenario [%s] execution", scenario.getName()));
+        recreateDriver();
     }
 
     @After
-    public void tearDown(Scenario scenario) throws URISyntaxException, IOException {
+    public void cucumberTearDown(Scenario scenario) {
+        getLogger().info(format("Finished scenario [%s] execution", scenario.getName()));
+        if (scenario.isFailed()) {
+            scenario.embed(takeScreenshot(), "image/png");
+        }
+        destroyDriver();
+
         /*
          * WORK IN PROGRESS - POC
          *
@@ -34,7 +34,7 @@ public class Hooks implements Loggable {
          * Also, try to remove XRay Maven's DependencyManagement from framework POM file too.
          *
          */
-        URI jiraUrl = new URI("http://52.45.166.109:8080/");
+        /*URI jiraUrl = new URI("http://52.45.166.109:8080/");
         String user = "";
         String pass = "";
         try (AsyncXrayJiraRestClient client = (AsyncXrayJiraRestClient) new XrayRestAsyncRestClientFactory().createWithBasicHttpAuthentication(jiraUrl, user, pass)) {
@@ -62,6 +62,6 @@ public class Hooks implements Loggable {
             getLogger().info("Scenario ID was: " + testId);
             getLogger().info("Scenario result was: " + status);
             //client.getTestRunClient().updateStatus(testId, status);
-        }
+        }*/
     }
 }

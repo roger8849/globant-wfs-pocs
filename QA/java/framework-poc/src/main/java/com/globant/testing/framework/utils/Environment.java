@@ -1,4 +1,4 @@
-package com.globant.testing.framework.web.utils;
+package com.globant.testing.framework.utils;
 
 import static java.lang.System.getProperty;
 

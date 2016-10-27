@@ -23,9 +23,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Sample integration test using EXCLUSIVELY Spring Boot testing framework.
- * <p>
- * "Integration test" as in Spring documentation. Sort of a multi class level testing. It is NOT UNIT TESTING.
+ * Sample integration test using Spring Boot testing framework + JUnit + JUnit rules.
  *
  * @author Juan Krzemien
  */

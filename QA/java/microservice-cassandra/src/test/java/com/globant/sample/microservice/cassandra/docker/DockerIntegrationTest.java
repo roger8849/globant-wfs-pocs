@@ -2,6 +2,7 @@ package com.globant.sample.microservice.cassandra.docker;
 
 import com.globant.testing.framework.api.logging.Loggable;
 import com.palantir.docker.compose.DockerComposeRule;
+import cucumber.api.junit.Cucumber;
 import org.junit.ClassRule;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,6 +21,7 @@ public abstract class DockerIntegrationTest implements Loggable {
     public static DockerComposeRule docker = DockerComposeRule.builder()
             .file("src/test/resources/docker-compose.yml")
             .waitingForService("cassandra", c -> {
+                System.err.println("Waiting for Cassandra to start up...");
                 try {
                     Thread.sleep(16000);
                 } catch (InterruptedException e) {

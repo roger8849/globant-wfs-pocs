@@ -1,14 +1,14 @@
 package com.globant.testing.framework.web.test.cucumber.definitions;
 
-import com.comcast.zucchini.TestContext;
+import com.globant.testing.framework.web.test.cucumber.TestContext;
 import com.globant.testing.framework.web.test.pageobject.MethodDispatcher;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 import static com.globant.testing.framework.web.test.pageobject.MethodDispatcher.ElementType.ANY;
 import static java.lang.String.format;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Generic Cucumber steps for performing validations on fields/web elements of a POM
@@ -49,7 +49,7 @@ public class ValidationSteps {
         String result = dispatcher.triggerMethodGetter(fieldName, ANY);
         // Prefer over literal value and compare...
         String toUse = text == null ? value : text;
-        assertTrue(result.contains(toUse), format("Field [%s] has a value [%s] which does not contain [%s]", fieldName, result, toUse));
+        assertTrue(format("Field [%s] has a value [%s] which does not contain [%s]", fieldName, result, toUse), result.contains(toUse));
     }
 
     @Then("^\"([^\"]*)\" is the same as previously entered in \"([^\"]*)\" field$")
@@ -69,7 +69,7 @@ public class ValidationSteps {
         // Get current field value
         String result = dispatcher.triggerMethodGetter(fieldName, ANY);
         // Compare
-        assertTrue(result.contains(previousFieldValue), format("Field [%s] has a value [%s] which does not contain previously entered one [%s] in [%s]", fieldName, result, previousFieldValue, previousFieldName));
+        assertTrue(format("Field [%s] has a value [%s] which does not contain previously entered one [%s] in [%s]", fieldName, result, previousFieldValue, previousFieldName), result.contains(previousFieldValue));
     }
 
     @Then("^Browser title should be \"([^\"]*)\"$")

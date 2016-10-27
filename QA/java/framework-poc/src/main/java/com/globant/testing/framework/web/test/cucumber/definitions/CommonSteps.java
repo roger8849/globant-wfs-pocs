@@ -1,8 +1,8 @@
 package com.globant.testing.framework.web.test.cucumber.definitions;
 
-import com.comcast.zucchini.TestContext;
+import com.globant.testing.framework.utils.Generator;
+import com.globant.testing.framework.web.test.cucumber.TestContext;
 import com.globant.testing.framework.web.test.pageobject.MethodDispatcher;
-import com.globant.testing.framework.web.utils.Generator;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 

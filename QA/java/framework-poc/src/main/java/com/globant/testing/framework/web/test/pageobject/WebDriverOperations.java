@@ -21,7 +21,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  * This package local class contains most operation that WebDriver can perform
  * on a WebElement (click, select, type, etc) or on a Browser (switchTo, get URL/title, etc).
  * <p>
- * It is also one of the two classes (along with {@link AbstractCucumberTestRunner}) that have
+ * It is also one of the two classes (along with {@link AbstractCucumberHook}) that have
  * access to the WebDriver instance.
  * <p>
  *

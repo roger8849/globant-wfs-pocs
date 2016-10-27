@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.globant.testing.framework.web.config.Framework.CONFIGURATION;
-import static com.globant.testing.framework.web.utils.Environment.is64Bits;
+import static com.globant.testing.framework.utils.Environment.is64Bits;
 import static io.github.bonigarcia.wdm.Architecture.x32;
 import static io.github.bonigarcia.wdm.Architecture.x64;
 import static io.github.bonigarcia.wdm.DriverVersion.LATEST;

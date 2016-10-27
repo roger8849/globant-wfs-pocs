@@ -42,7 +42,7 @@ public enum SeleniumServerStandAlone {
             server.boot();
         } catch (Throwable t) {
             if (t.getCause() instanceof BindException) {
-                log.error("Already running. Will reuse...");
+                log.warn("Already running. Will reuse...");
                 return;
             }
             log.error("Failed to start the server", t);
@@ -53,8 +53,8 @@ public enum SeleniumServerStandAlone {
         if (Framework.CONFIGURATION.WebDriver().isUseSeleniumGrid()) return;
         log.info("Shutting down local Selenium Stand Alone Server...");
         // Selenium Server already hooks itself to JVM Runtime to be removed upon exit
-        // server.stop();
-        // log.info("Done");
+        server.stop();
+        log.info("Done");
     }
 }
 

@@ -1,6 +1,7 @@
-package com.globant.testing.framework.web.utils;
+package com.globant.testing.framework.utils;
 
-import static org.apache.commons.lang.RandomStringUtils.*;
+
+import static org.apache.commons.lang3.RandomStringUtils.*;
 
 /**
  * Helper utility class that provides simple String generators to use in tests
