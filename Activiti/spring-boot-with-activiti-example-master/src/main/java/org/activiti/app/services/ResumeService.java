@@ -1,4 +1,4 @@
-package org.activiti.services;
+package org.activiti.app.services;
 
 import org.springframework.stereotype.Component;
 

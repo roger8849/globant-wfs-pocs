@@ -1,4 +1,4 @@
-package org.activiti.models;
+package org.activiti.app.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
