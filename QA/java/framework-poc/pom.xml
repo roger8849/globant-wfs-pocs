@@ -146,6 +146,22 @@
             <artifactId>docker-compose-rule</artifactId>
             <version>0.26.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-standalone</artifactId>
+            <version>1.1.11.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.arquillian.cube</groupId>
+            <artifactId>arquillian-cube-docker</artifactId>
+            <version>1.0.0.Alpha15</version>
+        </dependency>
+        <dependency>
+            <groupId>org.arquillian.cube</groupId>
+            <artifactId>arquillian-cube-docker-restassured</artifactId>
+            <version>1.0.0.Alpha15</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <repositories>

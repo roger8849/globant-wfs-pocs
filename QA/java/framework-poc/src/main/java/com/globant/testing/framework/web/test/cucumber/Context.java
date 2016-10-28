@@ -26,15 +26,19 @@ public final class Context {
 
     public static void BROWSER_TO_CONTEXT(Browser browser) {
         LOG.debug(format("Promoting Browser [%s] to context...", browser.name()));
-        TestContext tc = TestContext.getCurrent();
-        if (tc == null) {
-            tc = new TestContext(browser.name());
-            TestContext.setCurrent(tc);
+        TestContext context = TestContext.getCurrent();
+        if (context == null) {
+            context = new TestContext(browser.name());
+            TestContext.setCurrent(context);
         }
-        tc.set(BROWSER, browser);
+        context.set(BROWSER, browser);
     }
 
     public static Browser BROWSER_FROM_CONTEXT() {
+        TestContext context = TestContext.getCurrent();
+        if (context == null) {
+            BROWSER_TO_CONTEXT(Browser.CHROME);
+        }
         Browser browser = TestContext.getCurrent().get(BROWSER);
         LOG.debug(format("Retrieving Browser [%s] from context...", browser.name()));
         return browser;

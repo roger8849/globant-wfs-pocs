@@ -22,14 +22,14 @@ public class ValidationSteps {
     @And("^\"([^\"]*)\" field should be empty$")
     public void fieldIsNotEmpty(String fieldName) throws Throwable {
         String result = dispatcher.triggerMethodGetter(fieldName, ANY);
-        assertEquals(result, "", fieldName + " is not empty");
+        assertEquals(fieldName + " is not empty", "", result);
     }
 
     @And("^\"([^\"]*)\" field is the same as previously entered$")
     public void fieldsValueIsTheSameAsPreviouslyEntered(String fieldName) throws Throwable {
         String result = dispatcher.triggerMethodGetter(fieldName, ANY);
         String previouslyEntered = TestContext.getCurrent().get(fieldName);
-        assertEquals(result, previouslyEntered, format("Field [%s] has a value [%s] which does not match previously entered one [%s]", fieldName, result, previouslyEntered));
+        assertEquals(format("Field [%s] has a value [%s] which does not match previously entered one [%s]", fieldName, result, previouslyEntered), previouslyEntered, result);
     }
 
     @And("^\"([^\"]*)\" field's value is \"([^\"]*)\"$")
@@ -39,7 +39,7 @@ public class ValidationSteps {
         String result = dispatcher.triggerMethodGetter(fieldName, ANY);
         // Prefer over literal value and compare...
         String toUse = text == null ? value : text;
-        assertEquals(result, toUse, format("Field [%s] has a value [%s] which does not match [%s]", fieldName, result, toUse));
+        assertEquals(format("Field [%s] has a value [%s] which does not match [%s]", fieldName, result, toUse), toUse, result);
     }
 
     @And("^\"([^\"]*)\" field's value contains \"([^\"]*)\"$")
@@ -59,7 +59,7 @@ public class ValidationSteps {
         // Get current field value
         String result = dispatcher.triggerMethodGetter(fieldName, ANY);
         // Compare
-        assertEquals(result, previousFieldValue, format("Field [%s] has a value [%s] which does not match previously entered one [%s] in [%s]", fieldName, result, previousFieldValue, previousFieldName));
+        assertEquals(format("Field [%s] has a value [%s] which does not match previously entered one [%s] in [%s]", fieldName, result, previousFieldValue, previousFieldName), previousFieldValue, result);
     }
 
     @And("^\"([^\"]*)\" contains value previously entered in \"([^\"]*)\" field$")
@@ -75,6 +75,6 @@ public class ValidationSteps {
     @Then("^Browser title should be \"([^\"]*)\"$")
     public void browserTitleShouldBe(String title) throws Throwable {
         String actualTitle = dispatcher.triggerMethodGetter("browserTitle", MethodDispatcher.ElementType.ANY);
-        assertEquals(actualTitle, title, "Browser title does not match,");
+        assertEquals("Browser title does not match", title, actualTitle);
     }
 }

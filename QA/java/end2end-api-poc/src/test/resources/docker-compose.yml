@@ -1,0 +1,9 @@
+microservice-poc:
+  image: microservice-poc:latest
+  ports:
+    - "8080"
+
+cassandra:
+  image: cassandra:2.2.8
+  ports:
+    - "9042"

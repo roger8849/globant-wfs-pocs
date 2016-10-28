@@ -2,6 +2,7 @@ package com.globant.testing.framework.web.test.pageobject;
 
 import com.globant.testing.framework.web.enums.Browser;
 import com.globant.testing.framework.web.listeners.BasicWebDriverListener;
+import com.globant.testing.framework.web.selenium.SeleniumServerStandAlone;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -27,6 +28,10 @@ enum Drivers {
     private static final ThreadLocal<String> mainWindowHandlerPerThread = new ThreadLocal<>();
 
     private final WebDriverStrategyFactory factory = new WebDriverStrategyFactory();
+
+    Drivers() {
+        Runtime.getRuntime().addShutdownHook(new Thread(SeleniumServerStandAlone.INSTANCE::shutdown));
+    }
 
     public WebDriver create(Browser desiredBrowser) {
         WebDriver instance = get();
