@@ -5,6 +5,7 @@ import com.datastax.driver.core.Session;
 import com.globant.sample.microservice.cassandra.config.CassandraConfig;
 import com.globant.sample.microservice.cassandra.entity.LogReg;
 import com.globant.sample.microservice.cassandra.repository.LogTextRepository;
+import com.globant.testing.framework.spring.docker.DockerSpringIntegrationTest;
 import org.arquillian.cube.HostPort;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

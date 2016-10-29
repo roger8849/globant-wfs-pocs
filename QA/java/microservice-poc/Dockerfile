@@ -9,4 +9,4 @@ EXPOSE 8080
 
 RUN sh -c 'touch /app.jar'
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java", "-Dspring.datasource.url=jdbc:postgresql://${POSTGRES_URI_DOCKER}/samples", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]

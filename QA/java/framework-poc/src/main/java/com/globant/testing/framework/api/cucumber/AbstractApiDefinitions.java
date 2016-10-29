@@ -12,25 +12,9 @@ import static io.restassured.http.ContentType.JSON;
 import static java.lang.String.format;
 
 /**
- *
- *
  * @author Juan Krzemien
  */
 public abstract class AbstractApiDefinitions implements Loggable {
-
-//    static {
-//        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-//            CucumberResultsOverview results = new CucumberResultsOverview();
-//            results.setOutputDirectory("target/cucumber-results");
-//            results.setOutputName("cucumber-results");
-//            results.setSourceFile("target/cucumber.json");
-//            try {
-//                results.execute(true);
-//            } catch (Exception e) {
-//                System.err.println("ERROR GENERATING PRETTY REPORT: " + e.getMessage());
-//            }
-//        }));
-//    }
 
     @LocalServerPort
     private int port;

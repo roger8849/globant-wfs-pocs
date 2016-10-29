@@ -18,11 +18,14 @@ import static org.hamcrest.CoreMatchers.not;
 @RunWith(Arquillian.class)
 public class SampleMicroServiceAPIContainerTest {
 
-    @HostPort(containerName = "microservice-poc", value = 8080)
+    @HostPort(containerName = "web", value = 8080)
     private int microServicePort;
 
     @HostPort(containerName = "cassandra", value = 9042)
     private int cassandraPort;
+
+    @HostPort(containerName = "db", value = 5432)
+    private int postgresPort;
 
     @HostIp
     private String ip;
@@ -36,6 +39,11 @@ public class SampleMicroServiceAPIContainerTest {
     @Test
     public void shouldRetrieveCassandraPortFromContainer() {
         assertThat(cassandraPort, is(not(0)));
+    }
+
+    @Test
+    public void shouldRetrievePostgresPortFromContainer() {
+        assertThat(postgresPort, is(not(0)));
     }
 
 }

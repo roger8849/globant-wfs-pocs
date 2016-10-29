@@ -4,10 +4,12 @@ import com.globant.sample.microservice.Sample;
 import com.globant.sample.microservice.SampleMicroService;
 import com.globant.sample.microservice.SampleRepository;
 import com.globant.testing.framework.api.logging.Loggable;
+import com.globant.testing.framework.spring.docker.DockerSpringIntegrationTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,9 +27,8 @@ import static org.junit.Assert.*;
  *
  * @author Juan Krzemien
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = SampleMicroService.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class SampleIT extends AbstractTransactionalJUnit4SpringContextTests implements Loggable {
+@ContextConfiguration(classes = SampleMicroService.class)
+public class SampleIT extends DockerSpringIntegrationTest {
 
     @Autowired
     private SampleRepository repository;

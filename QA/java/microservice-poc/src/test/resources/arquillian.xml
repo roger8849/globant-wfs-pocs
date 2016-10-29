@@ -15,22 +15,8 @@
                     strategy: log
                     match: 'PostgreSQL init process complete'
                     sleepPollingTime: 5 s
-                    iterations: 3
-                    timeout: 15
-            cassandra:
-                await:
-                    strategy: log
-                    match: 'Starting listening for CQL clients on /0.0.0.0:9042...'
-                    sleepPollingTime: 5 s
                     iterations: 6
                     timeout: 30
-            web:
-                await:
-                    strategy: log
-                    match: 'Tomcat started on port(s): 8080 (http)'
-                    sleepPollingTime: 5 s
-                    iterations: 4
-                    timeout: 20
         </property>
     </extension>
 
