@@ -10,6 +10,7 @@ import cucumber.runtime.RuntimeOptionsFactory;
 import cucumber.runtime.io.MultiLoader;
 import cucumber.runtime.io.ResourceLoader;
 import cucumber.runtime.junit.FeatureRunner;
+import cucumber.runtime.junit.JUnitOptions;
 import cucumber.runtime.junit.JUnitReporter;
 import cucumber.runtime.model.CucumberFeature;
 import gherkin.formatter.model.Tag;
@@ -66,7 +67,8 @@ public class ParallelCucumber extends Cucumber implements Loggable {
             for (FeatureRunner featureRunner : oldChildren) {
                 for (Browser browser : browsers) {
                     CucumberFeature cucumberFeature = (CucumberFeature) getField(featureRunner, "cucumberFeature");
-                    JUnitReporter jUnitReporter = new JUnitReporter(runtimeOptions.reporter(classLoader), runtimeOptions.formatter(classLoader), runtimeOptions.isStrict());
+                    JUnitOptions jUnitOptions = new JUnitOptions(runtimeOptions.getJunitOptions());
+                    JUnitReporter jUnitReporter = new JUnitReporter(runtimeOptions.reporter(classLoader), runtimeOptions.formatter(classLoader), runtimeOptions.isStrict(), jUnitOptions);
                     cucumberFeature.getGherkinFeature().getTags().add(new Tag(browser.name(), -1));
                     newChildren.add(new RunnerDecorator(cucumberFeature, runtime, jUnitReporter, browser));
                 }

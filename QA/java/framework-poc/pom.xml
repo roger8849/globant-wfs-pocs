@@ -82,12 +82,7 @@
         <!--Cucumber Spring support-->
         <dependency>
             <groupId>info.cukes</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>1.2.4</version>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-spring</artifactId>
+            <artifactId>cucumber-java</artifactId>
             <version>1.2.5</version>
         </dependency>
         <dependency>
@@ -158,4 +153,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 </project>

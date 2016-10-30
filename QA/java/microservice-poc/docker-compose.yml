@@ -8,6 +8,8 @@ services:
       - db
     environment:
       - POSTGRES_URI_DOCKER=db:5432
+      - POSTGRES_HOST_DOCKER=db
+      - POSTGRES_PORT_DOCKER=5432
 
   db:
     image: postgres:9.5

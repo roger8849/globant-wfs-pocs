@@ -4,9 +4,8 @@ MAINTAINER Juan Krzemien
 VOLUME /tmp
 
 ADD target/microservice-poc-1.0-SNAPSHOT.jar app.jar
+ADD docker_start.sh docker_start.sh
 
 EXPOSE 8080
 
-RUN sh -c 'touch /app.jar'
-
-ENTRYPOINT ["java", "-Dspring.datasource.url=jdbc:postgresql://${POSTGRES_URI_DOCKER}/samples", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["./docker_start.sh"]

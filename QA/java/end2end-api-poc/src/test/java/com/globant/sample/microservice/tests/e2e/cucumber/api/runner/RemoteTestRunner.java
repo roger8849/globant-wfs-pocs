@@ -4,9 +4,10 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import cucumber.runtime.arquillian.CukeSpace;
 import cucumber.runtime.arquillian.api.Features;
+import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.junit.runner.RunWith;
 
-/*@CucumberOptions(
+@CucumberOptions(
         strict = true,
         features = {"src/test/resources/features"},
         glue = {
@@ -21,8 +22,9 @@ import org.junit.runner.RunWith;
         tags = {
                 "~@ignore"
         }
-)*/
+)
 @RunWith(CukeSpace.class)
-@Features({"src/test/resources/features"})
+//@Features({"src/test/resources/features"})
+@RunAsClient
 public class RemoteTestRunner {
 }
