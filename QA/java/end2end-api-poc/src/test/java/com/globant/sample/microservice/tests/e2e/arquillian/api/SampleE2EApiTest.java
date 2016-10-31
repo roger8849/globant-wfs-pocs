@@ -1,27 +1,18 @@
 package com.globant.sample.microservice.tests.e2e.arquillian.api;
 
 import com.globant.sample.microservice.tests.e2e.cucumber.api.models.Sample;
-import io.restassured.RestAssured;
 import org.arquillian.cube.HostIp;
 import org.arquillian.cube.HostPort;
-import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * @author Juan Krzemien
  */
-@RunWith(Arquillian.class)
-@RunAsClient
-public class SampleMicroServiceAPIContainerTest {
-
-    @HostPort(containerName = "web", value = 8080)
-    private int microServicePort;
+public class SampleE2EApiTest extends End2EndApiTestBase {
 
     @HostPort(containerName = "cassandra", value = 9042)
     private int cassandraPort;
@@ -34,7 +25,7 @@ public class SampleMicroServiceAPIContainerTest {
 
     @Test
     public void shouldRetrieveFirstSample() {
-        final Sample sample = RestAssured.get("http://" + ip + ":" + microServicePort + "/samples/1").as(Sample.class);
+        final Sample sample = client().get("/samples/1").as(Sample.class);
         assertThat(sample.getContent(), is("RUSO SAMPLE CONTENT"));
     }
 
