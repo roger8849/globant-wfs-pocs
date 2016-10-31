@@ -34,7 +34,7 @@ exports.config = {
     global.expect = global.chai.expect;
     global.assert = global.chai.assert;
     global.should = global.chai.should();
-    
+
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
   },
 
@@ -57,9 +57,9 @@ exports.config = {
       browserName: 'firefox',
       version: 'ANY'
     },
-    {
+    /*{
       browserName: 'internet explorer',
       version: 'ANY'
-    }
+    }*/
   ]
 };

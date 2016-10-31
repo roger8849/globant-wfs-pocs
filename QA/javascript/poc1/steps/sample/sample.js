@@ -13,7 +13,7 @@ CustomWorld.prototype.incrementBy = function(number) {
 };
 
 module.exports = function() {
-	
+
 	this.World = CustomWorld;
 
 	///// Your step definitions /////

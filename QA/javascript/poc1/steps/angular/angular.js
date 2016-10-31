@@ -1,16 +1,27 @@
-// set this.World to your custom world (optional)
+'use strict';
 
+var angularPage = require('../../pages/angularPage.js');
+
+// set this.World to your custom world (optional)
 module.exports = function() {
+
+	// this.Before(function () {
+	// 	page = new AngularPage();
+	// }),
 
 	///// Your step definitions /////
 
 	// use this.Given(), this.When() and this.Then() to declare step definitions
-	this.Given(/^Angular JS home page is open$/, function(callback) {
-        browser.driver.get('https://angularjs.org/');
-				expect(element(by.css('div.center > h1')).getText()).to.eventually.equal('HTML enhanced for web apps!').and.notify(callback);
-        /*element(by.css('div.center > h1')).getText().then(function(title){
-            expect(title).to.equal('HTML enhanced for web apps!');
-        });*/
-    });
+	this.Given(/^I navigate to Angular JS home page$/, function() {
+				angularPage.go();
+    }),
+
+	this.When(/^I look at Head Title message$/, function() {
+	}),
+
+	this.Then(/^Head Title message should read "([^"]+)"$/, function(message) {
+		expect(angularPage.getHeadTitle()).to.eventually.equal(message);
+	});
+
 
 };
