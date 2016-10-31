@@ -6,7 +6,6 @@ var angularPage = require('../../pages/angularPage.js');
 module.exports = function() {
 
 	// this.Before(function () {
-	// 	page = new AngularPage();
 	// }),
 
 	///// Your step definitions /////
@@ -22,6 +21,5 @@ module.exports = function() {
 	this.Then(/^Head Title message should read "([^"]+)"$/, function(message) {
 		expect(angularPage.getHeadTitle()).to.eventually.equal(message);
 	});
-
 
 };

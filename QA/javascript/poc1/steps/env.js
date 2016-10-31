@@ -2,7 +2,7 @@
 
 module.exports = function() {
 
-    this.setDefaultTimeout(3 * 1000);
+    this.setDefaultTimeout(60 * 1000);
 
     this.Before(function(scenario) {
         global.scenario = scenario;
