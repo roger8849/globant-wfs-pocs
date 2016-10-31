@@ -4,6 +4,7 @@ import com.globant.sample.microservice.tests.models.Sample;
 import io.restassured.RestAssured;
 import org.arquillian.cube.HostIp;
 import org.arquillian.cube.HostPort;
+import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,7 @@ import static org.hamcrest.CoreMatchers.not;
  * @author Juan Krzemien
  */
 @RunWith(Arquillian.class)
+@RunAsClient
 public class SampleMicroServiceAPIContainerTest {
 
     @HostPort(containerName = "web", value = 8080)
