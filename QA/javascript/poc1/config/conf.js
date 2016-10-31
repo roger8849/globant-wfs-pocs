@@ -15,8 +15,8 @@ exports.config = {
 
   cucumberOpts: {
     tags: '~@ignore',
-    //format  : ['json:reports/report.json', 'pretty', 'progress'],
-    format  : ['json', 'pretty', 'progress'],
+    format  : ['json:reports/report.json', 'pretty', 'progress'],
+    //format  : ['json', 'pretty', 'progress'],
     require: [
         './output.js', '../steps/**/*.js'
     ]
@@ -39,8 +39,8 @@ exports.config = {
   },
 
   afterLaunch: function() {
-    var reporter = require('protractor-multicapabilities-htmlreporter_v2');
-    reporter.generateHtmlReport('reports/protractor-report.json', 'Automation Results', 'reports/protractor-report.html');
+    //var reporter = require('protractor-multicapabilities-htmlreporter_v2');
+    //reporter.generateHtmlReport('reports/protractor-report.json', 'Automation Results', 'reports/protractor-report.html');
     //reporter.generateHtmlReport('reports/cucumber-test-results*.json', 'Automation Results', 'reports/report.html');
   },
 

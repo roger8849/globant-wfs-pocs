@@ -1,21 +1,15 @@
 version: '2'
 services:
-
   web:
-    image: microservice-poc:latest
+    build: .
     ports:
-      - "8080"
+      - "8080:8080"
     links:
       - db
     environment:
       - POSTGRES_URI_DOCKER=db:5432
       - POSTGRES_HOST_DOCKER=db
       - POSTGRES_PORT_DOCKER=5432
-
-  cassandra:
-    image: cassandra:2.2.8
-    ports:
-      - "9042"
 
   db:
     image: postgres:9.5

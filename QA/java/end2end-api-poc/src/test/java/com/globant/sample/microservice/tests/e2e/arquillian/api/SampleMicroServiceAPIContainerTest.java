@@ -1,6 +1,6 @@
 package com.globant.sample.microservice.tests.e2e.arquillian.api;
 
-import com.globant.sample.microservice.tests.models.Sample;
+import com.globant.sample.microservice.tests.e2e.arquillian.api.models.Sample;
 import io.restassured.RestAssured;
 import org.arquillian.cube.HostIp;
 import org.arquillian.cube.HostPort;

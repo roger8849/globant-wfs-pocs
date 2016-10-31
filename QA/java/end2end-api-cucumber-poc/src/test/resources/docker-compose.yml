@@ -4,7 +4,7 @@ services:
   web:
     image: microservice-poc:latest
     ports:
-      - "8080"
+      - "8080:8080"
     links:
       - db
     environment:

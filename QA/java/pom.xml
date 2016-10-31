@@ -21,9 +21,10 @@
 
     <modules>
         <module>microservice-poc</module>
-        <module>framework-poc</module>
-        <module>end2end-api-poc</module>
+        <module>microservice-integration-poc</module>
         <module>microservice-cassandra</module>
+        <module>end2end-api-poc</module>
+        <module>end2end-api-cucumber-poc</module>
     </modules>
 
     <build>
