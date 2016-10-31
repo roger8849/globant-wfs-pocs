@@ -4,7 +4,6 @@ import com.globant.sample.microservice.tests.e2e.cucumber.api.Loggable;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 
-import java.net.MalformedURLException;
 import java.util.Optional;
 
 import static io.restassured.http.ContentType.JSON;
@@ -22,12 +21,7 @@ public abstract class AbstractApiDefinitions implements Loggable {
     };
 
     protected String getTargetUrl() {
-        try {
-            return Optional.ofNullable(System.getenv("SUT_ENVIRONMENT")).orElseThrow(MalformedURLException::new);
-        } catch (MalformedURLException e) {
-            getLogger().error(e.getLocalizedMessage(), e);
-            throw new RuntimeException(e);
-        }
+        return Optional.ofNullable(System.getenv("SUT_ENVIRONMENT")).orElse(RestAssured.baseURI);
     }
 
     protected RequestSpecification spec() {
