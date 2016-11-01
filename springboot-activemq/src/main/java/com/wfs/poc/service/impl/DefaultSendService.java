@@ -20,23 +20,15 @@ public class DefaultSendService implements SendService {
 	MessageSender messageSender;
 	@Autowired
 	JmsTemplate jmsTemplate;
-	@Autowired
-	ConnectionFactory connectionFactory;
 
-	private static final String TEST_QUEUE = "test-queue";
-	
 	@Override
 	public String sendMessageToQueue(String messageString) {
 		Message message = new Message();
 		message.setMessage(messageString);
 		RestResponse jsonResponse = null;
 		
-		JmsTemplate template = new JmsTemplate();
-		template.setConnectionFactory(connectionFactory);
-		template.setDefaultDestinationName(TEST_QUEUE);
-		
 		try {
-			template.convertAndSend(message);
+		    jmsTemplate.convertAndSend(message);
 			jsonResponse = new RestResponse("200", "ok", null);
 		} catch (Exception e) {
 			jsonResponse = new RestResponse("500", "", "We're doomed: " + e.getMessage());
