@@ -1,4 +1,4 @@
-package com.globant.sample.microservice.tests.e2e.cucumber.api.models;
+package com.globant.sample.microservice.tests.e2e.arquillian.api.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

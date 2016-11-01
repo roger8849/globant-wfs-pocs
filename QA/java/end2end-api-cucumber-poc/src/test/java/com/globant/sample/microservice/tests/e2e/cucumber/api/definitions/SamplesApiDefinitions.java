@@ -1,7 +1,7 @@
 package com.globant.sample.microservice.tests.e2e.cucumber.api.definitions;
 
-import com.globant.sample.microservice.tests.e2e.cucumber.api.models.HateOasResource;
-import com.globant.sample.microservice.tests.e2e.cucumber.api.models.Sample;
+import com.globant.sample.microservice.tests.e2e.arquillian.api.models.HateOasResource;
+import com.globant.sample.microservice.tests.e2e.arquillian.api.models.Sample;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

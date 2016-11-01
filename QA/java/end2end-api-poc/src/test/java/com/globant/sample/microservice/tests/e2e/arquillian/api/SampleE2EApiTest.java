@@ -1,6 +1,6 @@
 package com.globant.sample.microservice.tests.e2e.arquillian.api;
 
-import com.globant.sample.microservice.tests.e2e.cucumber.api.models.Sample;
+import com.globant.sample.microservice.tests.e2e.arquillian.api.models.Sample;
 import org.arquillian.cube.HostIp;
 import org.arquillian.cube.HostPort;
 import org.junit.Test;
