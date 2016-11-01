@@ -8,6 +8,8 @@ module.exports = function() {
 	// this.Before(function () {
 	// }),
 
+	var headTitle;
+
 	///// Your step definitions /////
 
 	// use this.Given(), this.When() and this.Then() to declare step definitions
@@ -16,10 +18,11 @@ module.exports = function() {
     }),
 
 	this.When(/^I look at Head Title message$/, function() {
+		headTitle = angularPage.getHeadTitle();
 	}),
 
 	this.Then(/^Head Title message should read "([^"]+)"$/, function(message) {
-		expect(angularPage.getHeadTitle()).to.eventually.equal(message);
+		return expect(headTitle).to.eventually.equal(message);
 	});
 
 };

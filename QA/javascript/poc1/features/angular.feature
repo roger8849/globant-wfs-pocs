@@ -13,4 +13,4 @@ Feature: Simple browse
   Scenario: Navigate with browser2
     Given I navigate to Angular JS home page
     When I look at Head Title message
-    Then Head Title message should read "HTML enhanced for web apps!"
+    Then Head Title message should read "HTML enhanced for web apps2!"
