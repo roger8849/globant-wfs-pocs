@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://jboss.org/schema/arquillian"
+            xsi:schemaLocation="http://jboss.org/schema/arquillian
+  http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+    <!--SEE https://github.com/arquillian/arquillian-cube/blob/master/docs/configuration.adoc FOR CONFIGURATION-->
+    <extension qualifier="docker">
+        <property name="serverVersion">1.12.3</property>
+        <!--<property name="serverUri">http://localhost:2375</property>--> <!-- Linux: unix:///var/run/docker.sock -->
+        <property name="clean">true</property>
+        <property name="dockerContainersFile">src/it/resources/docker-compose.yml</property>
+        <property name="cubeSpecificProperties">
+            cassandra:
+                await:
+                    strategy: log
+                    match: 'Starting listening for CQL clients on /0.0.0.0:9042...'
+                    sleepPollingTime: 5 s
+                    iterations: 6
+                    timeout: 30
+        </property>
+    </extension>
+
+</arquillian>

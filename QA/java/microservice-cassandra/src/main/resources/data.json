@@ -1,6 +1,0 @@
-[ { "_class" : "com.globant.sample.microservice.cassandra.entity.LogReg",
-  "id" : "1",
-  "LogText" : "THIS IS A SAMPLE LOG TEXT" },
-  { "_class" : "com.globant.sample.microservice.cassandra.entity.LogReg",
-    "id" : "2",
-    "LogText" : "THIS ONE TOO!" } ]

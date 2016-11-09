@@ -11,20 +11,17 @@ exports.config = {
     '../features/**/*.feature'
   ],
 
-  resultJsonOutputFile: 'reports/protractor-report.json',
+  //resultJsonOutputFile: 'reports/protractor-report.json',
 
   cucumberOpts: {
     tags: '~@ignore',
-    format  : ['json:reports/report.json', 'pretty', 'progress'],
-    //format  : ['json', 'pretty', 'progress'],
+    format  : ['json', 'pretty', 'progress'],
     require: [
-        './output.js', '../steps/**/*.js'
+      './output.js', '../steps/**/*.js'
     ]
   },
 
   onPrepare: function() {
-    // Set any desired window size...
-    //browser.manage().window().setSize(1600, 1000);
     browser.manage().window().maximize();
 
     global.chai = require('chai');
@@ -39,9 +36,7 @@ exports.config = {
   },
 
   afterLaunch: function() {
-    //var reporter = require('protractor-multicapabilities-htmlreporter_v2');
-    //reporter.generateHtmlReport('reports/protractor-report.json', 'Automation Results', 'reports/protractor-report.html');
-    //reporter.generateHtmlReport('reports/cucumber-test-results*.json', 'Automation Results', 'reports/report.html');
+
   },
 
   maxSessions: 2,

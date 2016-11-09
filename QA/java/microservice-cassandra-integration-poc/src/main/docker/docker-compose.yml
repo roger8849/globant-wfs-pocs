@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    image: microservice-cassandra-poc
+    links:
+      - cassandra
+
+  cassandra:
+    image: cassandra:2.2.8
+    ports:
+      - "9042"

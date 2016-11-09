@@ -1,0 +1,26 @@
+package com.globant.sample;
+
+
+import javax.persistence.*;
+
+/**
+ * @author Juan Krzemien
+ */
+@Entity
+public class Sample {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "CONTENT")
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+}

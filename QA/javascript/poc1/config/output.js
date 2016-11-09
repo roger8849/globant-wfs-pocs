@@ -22,6 +22,29 @@ function mkdirp(path, root) {
   return !dirs.length || mkdirp(dirs.join('/'), root);
 }
 
+function sendToXRay(post_data) {
+  console.log("DATA TO SEND: ");
+  //console.log(post_data);
+
+  var username = process.env.XRAY_USERNAME || 'JuanKrzemien';
+  var password = process.env.XRAY_PASSWORD || 'Juankrzemien2017';
+  var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
+
+  var options = {
+    url: 'http://52.45.166.109:8080/rest/raven/1.0/import/execution/cucumber',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': auth
+    },
+    body: post_data
+  };
+
+  var request = require('request');
+  request.post(options, function(error, response, body) {
+    console.log(body);
+  });
+}
+
 module.exports = function JsonOutputHook() {
   JsonFormatter.log = function (json) {
     fs.open(reportFilePath, 'w+', function (err, fd) {
@@ -31,8 +54,8 @@ module.exports = function JsonOutputHook() {
       }
 
       fs.writeSync(fd, json);
-
       console.log('json file location: ' + reportFilePath);
+      sendToXRay(json);
     });
   };
 

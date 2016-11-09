@@ -20,9 +20,12 @@
     </dependencies>
 
     <modules>
-        <module>microservice-poc</module>
-        <module>microservice-integration-poc</module>
-        <module>microservice-cassandra</module>
+        <module>xray-formatter</module>
+        <module>microservice-component-poc</module>
+        <module>microservice-cassandra-cucumber-integration-poc</module>
+        <module>microservice-cassandra-integration-poc</module>
+        <module>unit-test-cucumber-poc</module>
+        <module>unit-test-poc</module>
         <module>end2end-api-poc</module>
         <module>end2end-api-cucumber-poc</module>
     </modules>
